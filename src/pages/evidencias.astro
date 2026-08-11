@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteConfig from '../data/site-config';
+
+// Datos de las evidencias agrupadas por categoría
+const evidencias = [
+    {
+        categoria: 'SQL',
+        icono: '💾',
+        trabajos: [
+            {
+                titulo: 'Consultas básicas SELECT',
+                descripcion: 'Ejercicios de consultas con SELECT, WHERE, ORDER BY y operadores lógicos.',
+                tecnologias: ['MySQL', 'PostgreSQL'],
+                enlace: '#',
+                tipo: 'pdf'
+            },
+            {
+                titulo: 'Joins y subconsultas',
+                descripcion: 'Uso de INNER JOIN, LEFT JOIN, subconsultas en WHERE y FROM.',
+                tecnologias: ['MySQL'],
+                enlace: '#',
+                tipo: 'pdf'
+            },
+            {
+                titulo: 'Funciones de agregación y GROUP BY',
+                descripcion: 'Uso de COUNT, SUM, AVG, MAX, MIN y cláusula GROUP BY con HAVING.',
+                tecnologias: ['PostgreSQL'],
+                enlace: '#',
+                tipo: 'pdf'
+            }
+        ]
+    },
+    {
+        categoria: 'PL/SQL Scripts',
+        icono: '📜',
+        trabajos: [
+            {
+                titulo: 'Procedimientos almacenados',
+                descripcion: 'Creación de procedimientos para gestión de inventario con parámetros de entrada y salida.',
+                tecnologias: ['Oracle', 'PL/SQL'],
+                enlace: '#',
+                tipo: 'code'
+            },
+            {
+                titulo: 'Funciones y triggers',
+                descripcion: 'Implementación de funciones escalares y triggers para auditoría de tablas.',
+                tecnologias: ['Oracle'],
+                enlace: '#',
+                tipo: 'code'
+            },
+            {
+                titulo: 'Paquetes PL/SQL',
+                descripcion: 'Organización de procedimientos y funciones en paquetes para modularidad.',
+                tecnologias: ['Oracle'],
+                enlace: '#',
+                tipo: 'code'
+            }
+        ]
+    },
+    {
+        categoria: 'NoSQL',
+        icono: '🗂️',
+        trabajos: [
+            {
+                titulo: 'Modelado en MongoDB',
+                descripcion: 'Diseño de esquemas embebidos y referenciados para una aplicación de redes sociales.',
+                tecnologias: ['MongoDB', 'JSON'],
+                enlace: '#',
+                tipo: 'pdf'
+            },
+            {
+                titulo: 'Consultas en Firebase Firestore',
+                descripcion: 'Consultas avanzadas, filtros y ordenamiento en Firestore.',
+                tecnologias: ['Firebase', 'NoSQL'],
+                enlace: '#',
+                tipo: 'code'
+            },
+            {
+                titulo: 'Redis para caché',
+                descripcion: 'Implementación de Redis como caché para consultas frecuentes.',
+                tecnologias: ['Redis', 'Node.js'],
+                enlace: '#',
+                tipo: 'code'
+            }
+        ]
+    },
+    {
+        categoria: 'Proyecto Final',
+        icono: '🚀',
+        trabajos: [
+            {
+                titulo: 'Sistema de Gestión de Biblioteca',
+                descripcion: 'Proyecto integrador que combina SQL, PL/SQL y NoSQL para la gestión de préstamos, devoluciones y usuarios.',
+                tecnologias: ['MySQL', 'Oracle', 'MongoDB', 'Node.js'],
+                enlace: '#',
+                tipo: 'proyecto'
+            }
+        ]
+    }
+];
+---
+
+<BaseLayout title="Evidencias - Santiago Ramos" description="Portafolio de evidencias de Bases de Datos 2">
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+        <!-- Encabezado -->
+        <header class="mb-16 text-center">
+            <h1 class="font-serif text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                Mis Evidencias
+            </h1>
+            <p class="mt-4 text-lg text-gray-400">
+                Trabajos prácticos y proyecto final de la materia <strong>Bases de Datos 2</strong>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">
+                Organizado por categorías: SQL · PL/SQL · NoSQL · Proyecto
+            </p>
+        </header>
+
+        <!-- Grid de categorías -->
+        <div class="space-y-16">
+            {evidencias.map((categoria) => (
+                <section key={categoria.categoria} class="rounded-2xl bg-gray-900/50 p-6 backdrop-blur-sm transition hover:bg-gray-900/70">
+                    <div class="mb-6 flex items-center gap-3 border-b border-gray-700 pb-4">
+                        <span class="text-3xl">{categoria.icono}</span>
+                        <h2 class="font-serif text-3xl font-bold">{categoria.categoria}</h2>
+                        <span class="ml-auto text-sm text-gray-400">
+                            {categoria.trabajos.length} {categoria.trabajos.length === 1 ? 'trabajo' : 'trabajos'}
+                        </span>
+                    </div>
+
+                    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {categoria.trabajos.map((trabajo) => (
+                            <div class="group relative rounded-xl border border-gray-700 bg-gray-800/50 p-5 transition hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10">
+                                <div class="flex items-start justify-between">
+                                    <h3 class="font-serif text-lg font-semibold group-hover:text-blue-400">
+                                        {trabajo.titulo}
+                                    </h3>
+                                    <span class="ml-2 rounded-full bg-gray-700 px-2 py-0.5 text-xs font-medium uppercase tracking-wider text-gray-300">
+                                        {trabajo.tipo === 'pdf' && 'PDF'}
+                                        {trabajo.tipo === 'code' && 'Código'}
+                                        {trabajo.tipo === 'proyecto' && 'Proyecto'}
+                                    </span>
+                                </div>
+
+                                <p class="mt-2 text-sm text-gray-300 leading-relaxed">
+                                    {trabajo.descripcion}
+                                </p>
+
+                                <div class="mt-3 flex flex-wrap gap-1.5">
+                                    {trabajo.tecnologias.map((tech) => (
+                                        <span class="rounded-full bg-gray-700/70 px-2.5 py-0.5 text-xs text-gray-300">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div class="mt-4">
+                                    <a
+                                        href={trabajo.enlace}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="inline-flex items-center gap-1 text-sm font-medium text-blue-400 transition hover:text-blue-300 hover:underline"
+                                    >
+                                        {trabajo.tipo === 'proyecto' ? 'Ver proyecto' : 'Ver trabajo'}
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            ))}
+        </div>
+
+        <!-- Pie de página con información adicional -->
+        <footer class="mt-20 border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+            <p>
+                Las evidencias incluyen scripts, consultas, modelos y documentación generados durante el curso.
+            </p>
+            <p class="mt-1">
+                Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+        </footer>
+    </div>
+</BaseLayout>
+
+<style>
+    /* Pequeños ajustes para transiciones y efectos */
+    .group:hover .group-hover\:text-blue-400 {
+        color: #60a5fa;
+    }
+    .container {
+        max-width: 1280px;
+    }
+</style>
