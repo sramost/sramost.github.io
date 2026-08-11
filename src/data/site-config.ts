@@ -51,12 +51,9 @@ const siteConfig: SiteConfig = {
         },
         {
             text: 'Instagram',
-            href: 'https://instagram.com/tu_usuario'
+            href: 'https://instagram.com/sramos.t'
         },
-        {
-            text: 'X/Twitter',
-            href: 'https://twitter.com/tu_usuario'
-        }
+
     ],
 
     // ========== SECCIÓN PRINCIPAL (HOME) ==========
@@ -76,7 +73,7 @@ const siteConfig: SiteConfig = {
 
 **Nombre:** Santiago Ramos Trejos
 
-**Gustos:** Me encantan las actividades donde mi mente siente que no se está esforzando, aunque sí lo esté haciendo. Por ejemplo, en relación a los deportes, me gusta tanto ver como practicar fútbol, voleibol y, en especial, ping pong. Me gusta un montón los videojuegos, especialmente los competitivos —he invertido mucho tiempo en Fortnite y tengo 100k copas en Brawl Stars. También disfruto pasar tiempo con mi familia, pareja y amigos. Y aunque solía tocar el trombón en una banda sinfónica, hoy mis intereses musicales se limitan a escuchar.
+**Gustos:** Me encantan las actividades donde mi mente siente que no se está esforzando, aunque sí lo esté haciendo. Por ejemplo, en relación a los deportes, me gusta tanto ver como practicar fútbol, voleibol y, en especial, ping pong. Me gusta un montón los videojuegos, especialmente los competitivos por ejemplo he invertido mucho tiempo en Fortnite y llegué a 100k copas en Brawl Stars 😹 . También disfruto pasar tiempo con mi familia, pareja y amigos. Y aunque solía tocar el trombón en una banda sinfónica, hoy mis intereses musicales se limitan a escuchar.
 
 ---
 
