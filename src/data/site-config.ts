@@ -4,89 +4,107 @@ import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
     website: 'https://sramost.github.io',
+
+    // Foto de perfil (circular, se usará en el header o sidebar)
     avatar: {
         src: avatar,
-        alt: 'Ethan Donovan'
+        alt: 'Foto de Santiago Ramos'
     },
-    title: 'Santiago Ra,ps',
-    subtitle: 'ESTUDIANTE BASE DE DATOS 2 ',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+
+    // Títulos principales
+    title: 'Santiago Ramos',
+    subtitle: 'Estudiante de Ingeniería de Sistemas',
+    description: 'Portafolio personal para la materia Bases de Datos 2',
+
+    // Imagen para redes sociales (cuando compartas el enlace)
     image: {
-        src: '/dante-preview.jpg',
-        alt: 'Dante - Astro.js and Tailwind CSS theme'
+        src: '/dante-preview.jpg',  // Puedes cambiar esta imagen después
+        alt: 'Portafolio Santiago Ramos'
     },
+
+    // 📌 Menú de navegación (SOLO Home y Evidencias)
     headerNavLinks: [
         {
             text: 'Home',
             href: '/'
         },
         {
-            text: 'Projects',
-            href: '/projects'
-        },
-        {
-            text: 'Blog',
-            href: '/blog'
-        },
-        {
-            text: 'Tags',
-            href: '/tags'
+            text: 'Evidencias',
+            href: '/evidencias'   // 👈 Esta página la crearás después
         }
     ],
+
+    // Enlaces del pie de página (los puedes eliminar o dejar solo los que uses)
     footerNavLinks: [
         {
-            text: 'About',
-            href: '/about'
+            text: 'GitHub',
+            href: 'https://github.com/sramost'  // 👈 Pon tu perfil de GitHub
         },
         {
-            text: 'Contact',
-            href: '/contact'
-        },
-        {
-            text: 'Terms',
-            href: '/terms'
-        },
-        {
-            text: 'Download theme',
-            href: 'https://github.com/JustGoodUI/dante-astro-theme'
+            text: 'LinkedIn',
+            href: 'https://linkedin.com/in/tu-perfil'  // 👈 Pon tu LinkedIn si tienes
         }
     ],
+
+    // Redes sociales (puedes dejarlas o eliminarlas)
     socialLinks: [
         {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
+            text: 'GitHub',
+            href: 'https://github.com/sramost'
         },
         {
             text: 'Instagram',
-            href: 'https://instagram.com/'
-        },
-        {
-            text: 'X/Twitter',
-            href: 'https://twitter.com/'
+            href: 'https://instagram.com/tu-usuario'  // 👈 Cambia por tu usuario
         }
     ],
+
+    // 🏠 SECCIÓN PRINCIPAL (HERO) - Aquí va tu video y presentación
     hero: {
-        title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence.\nMy approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products.\nI have a profound appreciation for top-notch software, visual design, and the principles of product-led growth.\n\nFeel free to explore some of my coding endeavors on [GitHub](https://github.com/JustGoodUI/dante-astro-theme) or follow me on [Twitter/X](https://twitter.com/justgoodui).",
+        title: '¡Hola! Soy Santiago Ramos',
+        text: `
+Soy estudiante de **Ingeniería de Sistemas** y actualmente curso la materia **Bases de Datos 2**. 
+
+### Video de presentación
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/TU_ID_VIDEO" title="Video presentación" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### Información General
+
+- **Nombre:** Santiago Ramos Trejos
+- **Gustos:** Me encanta el deporte, especialmente fútbol, voleibol y ping pong. Soy un apasionado de los videojuegos competitivos (muchas horas en Fortnite y 100k copas en Brawl Stars). Disfruto pasar tiempo con mi familia, pareja y amigos. También me gusta la música; toqué el trombón en una banda sinfónica, aunque ahora solo la disfruto como oyente.
+
+### ¿Por qué Bases de Datos 2?
+
+Porque es el corazón de cualquier sistema de información. Entender cómo se organizan, consultan y optimizan los datos me permite no solo aprobar la materia, sino también construir aplicaciones más robustas y eficientes. Además, me apasiona el reto de transformar datos en información valiosa para la toma de decisiones.
+
+### Este semestre
+
+Espero poder demostrar tanto el conocimiento teórico como práctico de este amplio mundo de las bases de datos, aplicando lo aprendido en proyectos reales y enfrentando desafíos que me preparen para el mundo laboral.
+        `,
         image: {
-            src: hero,
-            alt: 'A person sitting at a desk in front of a computer'
+            src: hero,   // Esta imagen ya no se usará porque pusiste video, pero déjala por si acaso
+            alt: 'Santiago Ramos'
         },
         actions: [
             {
-                text: 'Get in Touch',
-                href: '/contact'
+                text: 'Ver Evidencias',
+                href: '/evidencias'
             }
         ]
     },
+
+    // Sección de suscripción (puedes desactivarla si no la usas)
     subscribe: {
-        enabled: true,
+        enabled: false,   // 👈 Cambia a false para ocultarla
         title: 'Subscribe to Dante Newsletter',
         text: 'One update per week. All the latest posts directly in your inbox.',
         form: {
             action: '#'
         }
     },
+
     postsPerPage: 8,
     projectsPerPage: 8
 };
