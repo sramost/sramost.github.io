@@ -5,24 +5,21 @@ import type { SiteConfig } from '../types';
 const siteConfig: SiteConfig = {
     website: 'https://sramost.github.io',
 
-    // Foto de perfil (circular, se usará en el header o sidebar)
+    // ========== DATOS PERSONALES ==========
     avatar: {
         src: avatar,
         alt: 'Foto de Santiago Ramos'
     },
-
-    // Títulos principales
     title: 'Santiago Ramos',
     subtitle: 'Estudiante de Ingeniería de Sistemas',
-    description: 'Portafolio personal para la materia Bases de Datos 2',
+    description: 'Portafolio personal de Santiago Ramos - Estudiante de Bases de Datos 2',
 
-    // Imagen para redes sociales (cuando compartas el enlace)
     image: {
-        src: '/dante-preview.jpg',  // Puedes cambiar esta imagen después
-        alt: 'Portafolio Santiago Ramos'
+        src: '/dante-preview.jpg',
+        alt: 'Santiago Ramos - Portafolio'
     },
 
-    // 📌 Menú de navegación (SOLO Home y Evidencias)
+    // ========== MENÚ DE NAVEGACIÓN ==========
     headerNavLinks: [
         {
             text: 'Home',
@@ -30,23 +27,23 @@ const siteConfig: SiteConfig = {
         },
         {
             text: 'Evidencias',
-            href: '/evidencias'   // 👈 Esta página la crearás después
+            href: '/evidencias'
         }
     ],
 
-    // Enlaces del pie de página (los puedes eliminar o dejar solo los que uses)
+    // ========== PIE DE PÁGINA ==========
     footerNavLinks: [
         {
-            text: 'GitHub',
-            href: 'https://github.com/sramost'  // 👈 Pon tu perfil de GitHub
+            text: 'Inicio',
+            href: '/'
         },
         {
-            text: 'LinkedIn',
-            href: 'https://linkedin.com/in/tu-perfil'  // 👈 Pon tu LinkedIn si tienes
+            text: 'Evidencias',
+            href: '/evidencias'
         }
     ],
 
-    // Redes sociales (puedes dejarlas o eliminarlas)
+    // ========== REDES SOCIALES ==========
     socialLinks: [
         {
             text: 'GitHub',
@@ -54,52 +51,61 @@ const siteConfig: SiteConfig = {
         },
         {
             text: 'Instagram',
-            href: 'https://instagram.com/tu-usuario'  // 👈 Cambia por tu usuario
+            href: 'https://instagram.com/tu_usuario'
+        },
+        {
+            text: 'X/Twitter',
+            href: 'https://twitter.com/tu_usuario'
         }
     ],
 
-    // 🏠 SECCIÓN PRINCIPAL (HERO) - Aquí va tu video y presentación
+    // ========== SECCIÓN PRINCIPAL (HOME) ==========
     hero: {
         title: '¡Hola! Soy Santiago Ramos',
-        text: `
-Soy estudiante de **Ingeniería de Sistemas** y actualmente curso la materia **Bases de Datos 2**. 
-
-### Video de presentación
-
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/TU_ID_VIDEO" title="Video presentación" frameborder="0" allowfullscreen></iframe>
+        text: `Soy estudiante de **Ingeniería de Sistemas** y este es mi portafolio para la materia de **Bases de Datos 2**.
 
 ---
 
-### Información General
+### 🎥 Video de presentación
 
-- **Nombre:** Santiago Ramos Trejos
-- **Gustos:** Me encanta el deporte, especialmente fútbol, voleibol y ping pong. Soy un apasionado de los videojuegos competitivos (muchas horas en Fortnite y 100k copas en Brawl Stars). Disfruto pasar tiempo con mi familia, pareja y amigos. También me gusta la música; toqué el trombón en una banda sinfónica, aunque ahora solo la disfruto como oyente.
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/TU_VIDEO_ID" frameborder="0" allowfullscreen style="border-radius:12px; margin: 1rem 0;"></iframe>
 
-### ¿Por qué Bases de Datos 2?
+---
 
-Porque es el corazón de cualquier sistema de información. Entender cómo se organizan, consultan y optimizan los datos me permite no solo aprobar la materia, sino también construir aplicaciones más robustas y eficientes. Además, me apasiona el reto de transformar datos en información valiosa para la toma de decisiones.
+### 📋 Información General
 
-### Este semestre
+**Nombre:** Santiago Ramos Trejos
 
-Espero poder demostrar tanto el conocimiento teórico como práctico de este amplio mundo de las bases de datos, aplicando lo aprendido en proyectos reales y enfrentando desafíos que me preparen para el mundo laboral.
-        `,
+**Gustos:** Me encantan las actividades donde mi mente siente que no se está esforzando, aunque sí lo esté haciendo. Por ejemplo, en relación a los deportes, me gusta tanto ver como practicar fútbol, voleibol y, en especial, ping pong. Me gusta un montón los videojuegos, especialmente los competitivos —he invertido mucho tiempo en Fortnite y tengo 100k copas en Brawl Stars. También disfruto pasar tiempo con mi familia, pareja y amigos. Y aunque solía tocar el trombón en una banda sinfónica, hoy mis intereses musicales se limitan a escuchar.
+
+---
+
+### 🗄️ ¿Por qué Bases de Datos 2?
+
+Porque las bases de datos son el **corazón de cualquier sistema de información**. Entender cómo se organizan, consultan y optimizan los datos no solo es fundamental para un ingeniero de sistemas, sino que abre las puertas a entender el mundo digital que nos rodea. Esta materia me permite conectar la teoría con la práctica y prepararme para los retos del mundo real.
+
+---
+
+### 📚 Este semestre
+
+Espero poder demostrar el conocimiento tanto **teórico como práctico** de este amplio mundo de las bases de datos, y aplicar lo aprendido en proyectos que realmente tengan impacto.`,
         image: {
-            src: hero,   // Esta imagen ya no se usará porque pusiste video, pero déjala por si acaso
-            alt: 'Santiago Ramos'
+            src: hero,
+            alt: 'Santiago Ramos - Estudiante de Ingeniería de Sistemas'
         },
         actions: [
             {
-                text: 'Ver Evidencias',
+                text: 'Ver evidencias',
                 href: '/evidencias'
             }
         ]
     },
 
-    // Sección de suscripción (puedes desactivarla si no la usas)
+    // ========== SUSCRIPCIÓN (desactivada) ==========
     subscribe: {
-        enabled: false,   // 👈 Cambia a false para ocultarla
-        title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
+        enabled: false,
+        title: '',
+        text: '',
         form: {
             action: '#'
         }
