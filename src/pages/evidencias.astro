@@ -59,11 +59,11 @@ import siteConfig from '../data/site-config';
 </BaseLayout>
 
 <style is:global>
-  /* Ajustes para mantener la coherencia con la plantilla */
-  .evidencias a {
-    @apply text-blue-600 dark:text-blue-400 hover:underline;
-  }
+  /* Estilos adicionales para mantener coherencia (sin clases conflictivas) */
   .evidencias ul li::marker {
-    @apply text-gray-400 dark:text-gray-500;
+    color: #9ca3af; /* color gris para los bullets */
+  }
+  .dark .evidencias ul li::marker {
+    color: #6b7280; /* color gris oscuro en modo oscuro */
   }
 </style>
