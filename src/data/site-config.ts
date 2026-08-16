@@ -65,7 +65,7 @@ const siteConfig: SiteConfig = {
 
 ### 🎥 Video de presentación
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/TU_VIDEO_ID" frameborder="0" allowfullscreen style="border-radius:12px; margin: 1rem 0;"></iframe>
+<iframe width="100%" height="400" src="https://youtu.be/9umR8jGgidQ" frameborder="0" allowfullscreen style="border-radius:12px; margin: 1rem 0;"></iframe>
 
 ---
 
