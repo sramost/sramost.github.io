@@ -63,13 +63,13 @@ const siteConfig: SiteConfig = {
 
 ---
 
-### 🎥 Video de presentación
+###  Video de presentación
 
-<iframe width="100%" height="400" src="https://youtu.be/9umR8jGgidQ" frameborder="0" allowfullscreen style="border-radius:12px; margin: 1rem 0;"></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/9umR8jGgidQ" frameborder="0" allowfullscreen style="border-radius:12px; margin: 1rem 0;"></iframe>
 
 ---
 
-### 📋 Información General
+###  Información General
 
 **Nombre:** Santiago Ramos Trejos
 
@@ -77,13 +77,13 @@ const siteConfig: SiteConfig = {
 
 ---
 
-### 🗄️ ¿Por qué Bases de Datos 2?
+###  ¿Por qué Bases de Datos 2?
 
 Porque las bases de datos son el **corazón de cualquier sistema de información**. Entender cómo se organizan, consultan y optimizan los datos no solo es fundamental para un ingeniero de sistemas, sino que abre las puertas a entender el mundo digital que nos rodea. Esta materia me permite conectar la teoría con la práctica y prepararme para los retos del mundo real.
 
 ---
 
-### 📚 Este semestre
+###  Este semestre
 
 Espero poder demostrar el conocimiento tanto **teórico como práctico** de este amplio mundo de las bases de datos, y aplicar lo aprendido en proyectos que realmente tengan impacto.`,
         image: {
