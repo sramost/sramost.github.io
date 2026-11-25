@@ -5,6 +5,11 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Serialize Pages deployments so an older build cannot overwrite a newer one.
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
 permissions:
   contents: read
   pages: write
