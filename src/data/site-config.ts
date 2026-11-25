@@ -11,7 +11,7 @@ const siteConfig: SiteConfig = {
         alt: 'Foto de Santiago Ramos'
     },
     title: 'Santiago Ramos',
-    subtitle: 'Estudiante de Ingeniería de Sistemas',
+    subtitle: 'Estudiante de Ingeniería de Sistemas — quinto semestre',
     description: 'Portafolio personal de Santiago Ramos - Estudiante de Bases de Datos 2',
 
     image: {
@@ -67,7 +67,7 @@ const siteConfig: SiteConfig = {
     // ========== SECCIÓN PRINCIPAL (HOME) ==========
     hero: {
         title: '¡Hola! Soy Santiago Ramos',
-        text: `Soy estudiante de **Ingeniería de Sistemas** y este es mi portafolio para la materia de **Bases de Datos 2**.
+        text: `Soy estudiante de quinto semestre de **Ingeniería de Sistemas** y este es mi portafolio para la materia de **Bases de Datos 2**.
 
 ---
 
