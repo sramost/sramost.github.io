@@ -28,6 +28,10 @@ const siteConfig: SiteConfig = {
         {
             text: 'Evidencias',
             href: '/evidencias'
+        },
+        {
+            text: 'Profesional',
+            href: '/profesional/'
         }
     ],
 
@@ -40,6 +44,10 @@ const siteConfig: SiteConfig = {
         {
             text: 'Evidencias',
             href: '/evidencias'
+        },
+        {
+            text: 'Profesional',
+            href: '/profesional/'
         }
     ],
 
