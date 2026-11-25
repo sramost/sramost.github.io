@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import siteConfig from '../data/site-config';
+import { evidencias } from '../data/evidencias';
 ---
-
 <BaseLayout title="Evidencias" description="Trabajos y proyecto final de Bases de Datos 2">
   <section class="evidencias">
     <div class="container mx-auto px-4 py-12 max-w-4xl">
@@ -10,22 +9,20 @@ import siteConfig from '../data/site-config';
       <p class="text-gray-600 dark:text-gray-400 mb-12 text-lg">
         Espacio destinado a los trabajos prácticos y proyecto final de la materia Bases de Datos 2.
       </p>
-
-      <!-- SQL -->
-      <div class="mb-12">
-        <h2 class="font-serif text-2xl italic mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">SQL</h2>
-      </div>
-
-      <!-- PL/SQL Scripts -->
-      <div class="mb-12">
-        <h2 class="font-serif text-2xl italic mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">PL/SQL Scripts</h2>
-      </div>
-
-      <!-- NoSQL -->
-      <div class="mb-12">
-        <h2 class="font-serif text-2xl italic mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">NoSQL</h2>
-      </div>
-
+      {evidencias.map(seccion => (
+        <div class="mb-12">
+          <h2 class="font-serif text-2xl italic mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">{seccion.titulo}</h2>
+          <div class="divide-y divide-gray-200 dark:divide-gray-700">
+            {seccion.items.map(item => (
+              <a href={`/evidencias/${item.id}/`} class="group block py-4">
+                <p class="text-xs uppercase tracking-wider opacity-70 mb-1">{item.tipo}</p>
+                <h3 class="font-serif text-xl group-hover:underline underline-offset-4">{item.titulo} <span aria-hidden="true">↗</span></h3>
+                <p class="text-sm opacity-80 mt-1">{item.resumen}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
       <!-- Proyecto Final -->
       <div class="mb-12">
         <h2 class="font-serif text-2xl italic mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Proyecto Final</h2>

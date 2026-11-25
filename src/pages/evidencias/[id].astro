@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { evidencias } from '../../data/evidencias';
+export function getStaticPaths() {
+  return evidencias.flatMap(seccion => seccion.items.map(item => ({
+    params: { id: item.id }, props: { item, seccion: seccion.titulo }
+  })));
+}
+const { item, seccion } = Astro.props;
+---
+<BaseLayout title={item.titulo} description={item.resumen} showHeader={false}>
+  <article class="py-12 mb-16">
+    <a href="/evidencias/" class="text-sm underline underline-offset-4">← Todas las evidencias</a>
+    <header class="mt-8 mb-8">
+      <p class="text-sm opacity-70 mb-3">{seccion} / {item.tipo}</p>
+      <h1 class="font-serif text-3xl sm:text-5xl leading-tight">{item.titulo}</h1>
+      <p class="mt-4 text-lg opacity-80">{item.resumen}</p>
+    </header>
+    <div class="prose sm:prose-lg max-w-none">
+      <h2>Contexto y objetivo</h2>
+      <p>{item.contexto}</p>
+      <h2>Desarrollo</h2>
+      <ul>{item.temas.map(tema => <li>{tema}</li>)}</ul>
+      {item.codigo && <><h2>Fragmento de código</h2><pre class="overflow-x-auto"><code>{item.codigo}</code></pre></>}
+      <h2>Análisis técnico</h2>
+      <p>{item.analisis}</p>
+      <h2>Resultados y comprobación</h2>
+      <p>{item.resultado}</p>
+      {item.archivos.length > 0 && <>
+        <h2>Scripts descargables</h2>
+        <ul>{item.archivos.map(([archivo, nombre]) => <li><a href={`/evidencias/${archivo}`} download>{nombre}</a></li>)}</ul>
+      </>}
+      <h2>Referencia</h2>
+      <p>{item.fuente}</p>
+    </div>
+  </article>
+</BaseLayout>
