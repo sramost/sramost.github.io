@@ -1,12 +1,25 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { evidencias } from '../../data/evidencias';
+import { desarrollo } from '../../data/desarrollo-evidencias';
+import { laboratorios } from '../../data/desarrollo-laboratorios';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { Code } from 'astro:components';
 export function getStaticPaths() {
   return evidencias.flatMap(seccion => seccion.items.map(item => ({
     params: { id: item.id }, props: { item, seccion: seccion.titulo }
   })));
 }
 const { item, seccion } = Astro.props;
+const bloques = desarrollo[item.id] ?? [];
+const lab = laboratorios[item.id];
+const archivoPrincipal = item.id === 'inventario' ? 'inventario-solucion.sql' : item.archivos[0]?.[0];
+const fuenteCodigo = archivoPrincipal ? readFileSync(resolve(process.cwd(), 'public/evidencias', archivoPrincipal), 'utf8') : '';
+const lineas = fuenteCodigo.split(/\r?\n/);
+const lenguaje = archivoPrincipal?.endsWith('.js') ? 'javascript' : 'sql';
+const fragmento = (desde: number, hasta: number) => lineas.slice(desde - 1, hasta).join('\n').trim();
+
 ---
 <BaseLayout title={item.titulo} description={item.resumen} showHeader={false}>
   <article class="py-12 mb-16">
@@ -22,12 +35,43 @@ const { item, seccion } = Astro.props;
       <h2>Desarrollo</h2>
       <ul>{item.temas.map(tema => <li>{tema}</li>)}</ul>
       {item.codigo && <><h2>Fragmento de código</h2><pre class="overflow-x-auto"><code>{item.codigo}</code></pre></>}
+      {bloques.length > 0 && <>
+        <h2>Solución paso a paso</h2>
+        <p>El siguiente desarrollo presenta el código de cada ejercicio directamente en el portafolio, acompañado de su explicación y criterio de comprobación.</p>
+        {item.id === 'taller-mql' && <>
+          <h3>Preparación de la colección</h3>
+          <Code code={fragmento(1,5)} lang="javascript" />
+          <p>La variable c representa la colección. En los puntos de agregación, run es una función auxiliar que ejecuta c.aggregate(pipeline) e imprime el resultado.</p>
+          <Code code={fragmento(34,34)} lang="javascript" />
+        </>}
+        <nav aria-label="Índice de ejercicios">
+          <ol>{bloques.map((b,i) => <li><a href={`#ejercicio-${i+1}`}>{b.titulo}</a></li>)}</ol>
+        </nav>
+        {bloques.map((b,i) => <section id={`ejercicio-${i+1}`} class="mt-10 scroll-mt-6">
+          <h3>{b.titulo}</h3>
+          <p>{b.explicacion}</p>
+          <Code code={fragmento(b.desde,b.hasta)} lang={lenguaje} />
+          <p><strong>Comprobación:</strong> {b.comprobacion}</p>
+        </section>)}
+      </>}
+      {lab && <>
+        <h2>Fundamento e hipótesis</h2>
+        <p>{lab[0]}</p>
+        <h2>Procedimiento experimental</h2>
+        <p>{lab[1]}</p>
+        <h3>Código completo del experimento</h3>
+        <Code code={fuenteCodigo} lang={lenguaje} />
+        <h2>Resultados esperados (no medidos)</h2>
+        <pre class="overflow-x-auto"><code>{lab[2]}</code></pre>
+        <h2>Discusión y conclusión técnica</h2>
+        <p>{lab[3]}</p>
+      </>}
       <h2>Análisis técnico</h2>
       <p>{item.analisis}</p>
       <h2>Resultados y comprobación</h2>
       <p>{item.resultado}</p>
       {item.archivos.length > 0 && <>
-        <h2>Scripts descargables</h2>
+        <h2>Material complementario descargable</h2>
         <ul>{item.archivos.map(([archivo, nombre]) => <li><a href={`/evidencias/${archivo}`} download>{nombre}</a></li>)}</ul>
       </>}
       <h2>Referencia</h2>
