@@ -1,0 +1,15 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Code } from 'astro:components';
+import { ddl, objetos } from '../data/chatly-sql';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout title={frontmatter.title} description="Proyecto final de Bases de Datos 2" showHeader={false}>
+<article class="py-12 mb-16"><a href="/evidencias/" class="text-sm underline">← Todas las evidencias</a><header class="mt-8 mb-8"><p class="text-sm opacity-70">Proyecto Final / Bases de Datos 2</p><h1 class="font-serif text-4xl sm:text-5xl">Chatly</h1><p class="mt-4 text-lg">Sistema web de mensajería con persistencia híbrida</p></header>
+<div class="prose sm:prose-lg max-w-none">
+<svg viewBox="0 0 600 245" role="img" aria-label="Angular y Spring Boot conectados a PostgreSQL y MongoDB" style="width:100%;height:auto"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="200" y="10" width="200" height="45" rx="5"/><rect x="200" y="85" width="200" height="45" rx="5"/><path d="M300 55V85 M300 130V150H150V178 M300 150H450V178"/><rect x="30" y="178" width="240" height="55" rx="5"/><rect x="330" y="178" width="240" height="55" rx="5"/></g><g fill="currentColor" text-anchor="middle" font-size="15"><text x="300" y="38">Angular</text><text x="300" y="112">Spring Boot · REST</text><text x="150" y="200">PostgreSQL</text><text x="150" y="219" font-size="12">8 tablas · PL/pgSQL</text><text x="450" y="200">MongoDB</text><text x="450" y="219" font-size="12">Colección Mensaje</text></g></svg>
+<slot/>
+<h2>Apéndice técnico: esquema y objetos originales</h2><p>Expande cada objeto para consultar el código directamente en el portafolio. Las definiciones repetidas reflejan el orden del script aportado.</p>
+<details><summary>DDL — ocho tablas</summary><Code code={ddl} lang="sql"/></details>
+{objetos.map((o,i)=><details class="my-3"><summary>{i+1}. {o.name}</summary><Code code={o.code} lang="sql"/></details>)}
+</div></article></BaseLayout>
